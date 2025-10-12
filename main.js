@@ -143,6 +143,28 @@ document.addEventListener('DOMContentLoaded', function() {
    
 
 });
+////////////////////////////////////////////////////##############################################/
+/////////////////////////////////////////////////////################################################
+/////////////////////////////////////////////////////################################################
+/////////////////////////////////////////////////////################################################
+/////////////////////////////////////////////////////################################################
+/////////////////////////////////////////////////////################################################
+/////////////////////////////////////////////////////################################################
+////////////DIFERENCIAS ENTRE VAR, LET Y CONST
+// var: tiene alcance de función y puede ser redeclarada y reasignada
+// let: tiene alcance de bloque y no puede ser redeclarada en el mismo bloque
+// const: tiene alcance de bloque, no puede ser redeclarada y su valor no puede ser reasignado
+
+document.getElementById('varExample').style.color = '#FFB347'; // Naranja
+document.getElementById('letExample').style.color = '#FFB347'; // Naranja
+document.getElementById('constExample').style.color = '#FFB347'; // Naranja
+
+var ejemploVar = "Soy una variable var";
+let ejemploLet = "Soy una variable let";
+const ejemploConst = "Soy una constante const";
+
+
+
 
 ////////////////////////////////////////////////////##############################################/
 /////////////////////////////////////////////////////################################################
@@ -187,6 +209,8 @@ function toggleTaskStates() {
         console.warn("Elementos de estado no encontrados");
     }
 }
+
+
 
 // Función para cerrar sesión
 function logout() {
@@ -742,7 +766,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             // Restaurar estilo del botón en caso de error
-            micButton.classList.remove('from-red-500', 'to-red-600', 'animate-pulse');
+            micButton.classList.remove('from-red-500', 'to-red-600', 'animate-pulse'); 
             micButton.classList.add('from-blue-500', 'to-blue-600', 'hover:from-blue-600', 'hover:to-blue-700');
             micButton.title = 'Agregar tarea por voz';
             
