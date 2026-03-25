@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import authRoutes from './src/routes/auth.routes.js';
-import taskRoutes from './src/routes/task.routes.js';
+import projectRoutes from './src/routes/project.routes.js';
+import columnRoutes from './src/routes/column.routes.js';
 import { errorHandler, notFoundHandler } from './src/middlewares/error.middleware.js';
 
 const app = express();
@@ -15,16 +16,18 @@ app.use(express.json());
 
 // Rutas
 app.use('/api/auth', authRoutes);
-app.use('/api/tasks', taskRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/columns', columnRoutes);
 
 // Ruta de bienvenida
 app.get('/', (req, res) => {
   res.json({
     message: 'API Task Manager',
-    version: '2.0.0',
+    version: '3.0.0',
     endpoints: {
       auth: '/api/auth',
-      tasks: '/api/tasks'
+      projects: '/api/projects',
+      columns: '/api/columns'
     }
   });
 });

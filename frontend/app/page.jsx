@@ -13,7 +13,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      router.push("/tasks");
+      router.push("/projects");
     }
   }, [isAuthenticated, router]);
 
@@ -38,23 +38,17 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#121212] flex items-center justify-center p-6">
-      <nav className="bg-[#2D2D2D] shadow-2xl border-b border-[#FFB347]/20 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
-        <div className="container mx-auto px-6 py-5">
-          <h1 className="text-white text-2xl font-bold text-center tracking-tight">
-            TaskManager <span className="text-[#FFB347]">Pro</span>
-          </h1>
-        </div>
-      </nav>
-
-      <div className="mt-20 w-full max-w-md">
-        <div className="bg-[#2D2D2D] rounded-3xl shadow-2xl border border-[#FFB347]/30 p-10">
+    <div className="min-h-screen bg-mesh flex items-center justify-center p-6">
+      <div className="w-full max-w-md">
+        <div className="glass-strong rounded-3xl p-10 animate-fade-in">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-4">Iniciar Sesión</h2>
-            <p className="text-gray-300">Accede a tu cuenta para gestionar tus tareas</p>
+            <h1 className="text-4xl font-bold text-white mb-2">
+              Task<span className="text-[#FFB347]">Board</span>
+            </h1>
+            <p className="text-gray-400 text-sm">Organiza tus proyectos como un profesional</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-300">Email</label>
               <input
@@ -63,7 +57,7 @@ export default function HomePage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-4 py-4 border border-[#FFB347]/30 rounded-xl focus:ring-2 focus:ring-[#FFB347] focus:border-[#FFB347] transition-all duration-200 bg-[#121212] text-white placeholder-gray-400"
+                className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#FFB347]/50 focus:ring-1 focus:ring-[#FFB347]/30 transition-all outline-none"
               />
             </div>
             <div className="space-y-2">
@@ -74,27 +68,26 @@ export default function HomePage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-4 py-4 border border-[#FFB347]/30 rounded-xl focus:ring-2 focus:ring-[#FFB347] focus:border-[#FFB347] transition-all duration-200 bg-[#121012] text-white placeholder-gray-400"
+                className="w-full px-4 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-[#FFB347]/50 focus:ring-1 focus:ring-[#FFB347]/30 transition-all outline-none"
               />
             </div>
             <button 
               type="submit" 
-              className="w-full py-4 px-6 bg-linear-to-r from-[#FFB347] to-[#FF8C00] hover:from-[#FF8C00] hover:to-[#FF6B35] text-black font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] shadow-xl hover:shadow-[#FFB347]/30"
+              className="w-full py-3.5 px-6 bg-linear-to-r from-[#FFB347] to-[#FF8C00] hover:from-[#FF8C00] hover:to-[#FF6B35] text-black font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-[#FFB347]/20"
             >
               Iniciar Sesión
             </button>
           </form>
 
           {error && (
-            <div className="mt-4 p-4 bg-red-500/20 border border-red-500/50 text-red-400 rounded-xl text-center">
+            <div className="mt-4 p-3 bg-red-500/10 border border-red-500/30 text-red-400 rounded-xl text-center text-sm">
               {error}
             </div>
           )}
 
-
-          <p className="mt-6 text-center text-gray-300">
+          <p className="mt-6 text-center text-gray-400 text-sm">
             ¿No tenés cuenta?{" "}
-            <a href="/register" className="text-[#FFB347] hover:text-[#FF8C00] font-semibold hover:underline transition-colors">
+            <a href="/register" className="text-[#FFB347] hover:text-[#FF8C00] font-semibold transition-colors">
               Registrate aquí
             </a>
           </p>

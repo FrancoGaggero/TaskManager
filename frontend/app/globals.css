@@ -2,8 +2,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #121212;
+  --background: #0a0a0f;
   --foreground: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 179, 71, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --accent: #FFB347;
+  --accent-hover: #FF8C00;
 }
 
 @theme inline {
@@ -21,6 +26,48 @@ html, body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
+/* Glassmorphism utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 179, 71, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 179, 71, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 179, 71, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Background gradient mesh */
+.bg-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255, 179, 71, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(255, 107, 53, 0.04) 0%, transparent 50%),
+    var(--background);
+}
+
 /* Animación flotante */
 @keyframes float {
   0%, 100% {
@@ -33,6 +80,61 @@ html, body {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+/* Slide up animation for toasts */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Dragging styles */
+.dragging {
+  opacity: 0.5;
+  transform: rotate(3deg) scale(0.95);
+}
+
+.drag-over {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 20px rgba(255, 179, 71, 0.3) !important;
+}
+
+/* Column scrollbar */
+.column-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.column-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.column-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 179, 71, 0.3);
+  border-radius: 10px;
+}
+
+.column-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 179, 71, 0.5);
 }
 
 /* Scrollbar personalizado para área de tareas */

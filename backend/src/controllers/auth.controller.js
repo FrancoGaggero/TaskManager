@@ -164,7 +164,7 @@ export const getAllUsers = async (req, res, next) => {
         role: true,
         createdAt: true,
         _count: {
-          select: { tasks: true }
+          select: { projects: true }
         }
       },
       orderBy: {
